@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas HTML</title>
+</head>
+<style type="text/css">
+	canvas{
+		background-color: lightblue;
+		border: solid 1px;}
+
+</style>
+<body>
+
+<canvas width="800" height="450" id="canvas"></canvas>
+
+<script type="text/javascript">
+	
+	var c=document.getElementById('canvas');
+	var ctx=c.getContext('2d');
+
+	 //segitiga kiri//
+
+	 ctx.beginPath();
+	 ctx.moveTo(50, 225);
+	 ctx.lineTo(150, 120);
+	 ctx.lineTo(150, 330);
+	 ctx.fillStyle = "#228B22"; 
+	 ctx.fill();
+
+	 //lingkaran1//
+
+	 ctx.beginPath();
+	 ctx.arc(400, 225, 130, 0, 2 * Math.PI);
+	 ctx.fillStyle = "#8B0000";
+	 ctx.fill();
+	 ctx.strokeStyle = "white";
+	 ctx.lineWidth = 3;
+	 ctx.stroke();
+
+	 //lingkaran2//
+
+	 ctx.beginPath();
+	 ctx.arc(400, 225, 95, 0, 2 * Math.PI);
+	 ctx.fillStyle = "#ffa500";
+	 ctx.fill();
+
+	 //persegi 1//
+
+	 ctx.beginPath();
+	 ctx.fillStyle = "#708090";
+	 ctx.fillRect(360, 185, 80, 80);
+	 ctx.strokeRect(360, 185, 81, 81);
+	 ctx.strokeStyle="#FFFFFF";
+	 ctx.fill();
+
+
+	 //segitiga kanan//
+
+	 ctx.beginPath();
+	 ctx.moveTo(750, 225);
+	 ctx.lineTo(650, 120);
+	 ctx.lineTo(650, 330);
+	 ctx.fillStyle = "#228B22";
+	 ctx.fill();
+
+
+
+
+</script>
+
+</body>
+</html>
