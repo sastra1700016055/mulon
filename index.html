@@ -34,7 +34,7 @@ body {
   .column {
     width: 100%;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 20px;    
   }
 }
 
@@ -43,7 +43,32 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
-  background-color: #f1f1f1;
+  background-color: #ff0000;
+  border-radius: 10px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.card:hover {opacity: 1}
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
 }
 </style>
 </head>
@@ -58,7 +83,7 @@ body {
     <div class="column">
       <div class="card">
         <h3>Praktikum 1</h3>
-        <a href="praktikum1_1700016055.html">Canvas HTML.html</a>
+        <a href="praktikum1_1700016055.html" color=white>Canvas HTML.html</a>
       </div>
     </div>
 
@@ -69,6 +94,7 @@ body {
           <a href="praktikum2_1700016055.html">Vektor Pattern.html</a>
         </div>
       </div>
+    </div>
 
    <!-- <ul>    
 	 <li><a href="praktikum2_1700016055.html">Praktikum 2 - Interaktivitas.html</a></li>
