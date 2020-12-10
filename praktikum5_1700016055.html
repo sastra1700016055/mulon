@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Random Motion Canvas</title>
+   <head>
+      <style type="text/css">
+         body{
+            margin:0;
+         }         
+         canvas{
+            background-color: rgba(65, 65, 65, 0.61);
+         }
+      </style>
+<body>      
+<script>
+var red, blue, yellow;
+var obj=[], objNum=60, color=['black','orange','blue-green','pink', 'white', 'purple'];
+function startApp() {
+    for(var i=0; i<objNum; i++)
+    {
+      var pos=Math.floor(Math.random()*850);
+      var speed=Math.floor(Math.random()*8)+1;
+      var clr=Math.floor(Math.random()*10);
+      obj[i]= new Sprite(100, 50, 10, color[clr], pos, 0,speed);
+    }
+   
+    myApp.start();
+}
+
+var myApp = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 800;
+        this.canvas.height = 450;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(appLoop, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function Sprite(width, height, radius, color, x, y,speed) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;
+    this.radius=radius;    
+    this.speed=speed;
+    this.update = function(){
+        ctx = myApp.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.radius, this.width, this.height);
+    }
+}
+
+function appLoop() {
+    myApp.clear();
+    for(var i=0; i<objNum;i++)
+    {
+      obj[i].y+=obj[i].speed;
+      if(obj[i].y>400){
+         var pos=Math.floor(Math.random()*800);
+         var speed=Math.floor(Math.random()*10)+1;
+         obj[i].y=0;
+         obj[i].x=pos;
+         obj[i].speed=speed;
+      }
+      obj[i].update();
+    }    
+}
+
+startApp()
+
+</script>
+<script language="JavaScript">
+  window.onload = function() {
+    document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function(e) {
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        disabledEvent(e);
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        disabledEvent(e);
+      }
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        disabledEvent(e);
+      }
+      if (e.ctrlKey && e.keyCode == 85) {
+        disabledEvent(e);
+      }
+      if (event.keyCode == 123) {
+        disabledEvent(e);
+      }
+    }, false);
+    function disabledEvent(e){
+      if (e.stopPropagation){
+        e.stopPropagation();
+      } else if (window.event){
+        window.event.cancelBubble = true;
+      }
+      e.preventDefault();
+      return false;
+    }
+  };
+</script>
+</body>
+</head>
